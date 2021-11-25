@@ -5,14 +5,21 @@ Purpose = Learning how to represent images in our GUI
 """
 
 from tkinter import *
-
+from PIL import ImageTk, Image
+import os
+images_files = []
+files = os.listdir()
+for i in files:
+    if i.endswith(".png") or i.endswith(".jpg"):
+        images_files.append(i)
+print(images_files)
 root = Tk()
-root.geometry("3840x2160")
-root.minsize("3840", "2160")
-root.maxsize("3840", "2160")
-image2 = PhotoImage(file="back_image.png")
-stuff = Label(text="Welcome to guess the number\nMade by Anant luthra", image=image2)
+root.geometry("500x500")
+for i,Index in enumerate(images_files):
+    print(Index)
+    Photo = ImageTk.PhotoImage(file=i)
+    data = Label(image=Photo)
+    data.pack()
 
-stuff.pack()
 
 root.mainloop()
