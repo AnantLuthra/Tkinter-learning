@@ -39,6 +39,7 @@ today_time = datetime.datetime.now().date()
 root = Tk()
 
 # WINDOW DELTAILS ==========================================================================================================#
+
 root.geometry("1366x768")
 root.minsize("1360", "760") 
 root.maxsize("1366", "768")
