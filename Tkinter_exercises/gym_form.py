@@ -6,15 +6,38 @@ Purpose - Making a GUI for form of registration for dance class.
 
 from tkinter import *
 from PIL import Image, ImageTk
+import datetime
+date1 = (datetime.datetime.now().date())
 
-def submit_details():
+def resposes_details(option):
     """
     This function is to write details in .txt file and also to print details on console.
     """
-    
+    name1 = name.get()
+    age1 = age.get()
+    gender1 = gender.get()
+    mono1 = mono.get()
+    if option == "submit":
+        if name1 == "" or age1 ==  "" or gender1 == "" or mono1 == "":
+            print("All details are required !!")
+            return
 
-    print("Successfully Submitted !!")
-    
+        # if mono1.isnumeric() and age1.isnumeric():
+        #     follow = True
+        else:
+            with open("dance_class.txt", "a") as f:
+                f.write(f"Date - {date1}\nName - {name1}\nAge - {age1}\nGender - {gender1}\nMobile no. - {mono1}\n#-----------------------------------------------#\n")
+            
+                print("Successfully Submitted !!")
+
+    elif option == "get":
+        with open("dance_class.txt", "r") as f:
+            data = f.read()
+            if data == "":
+                print("Not any responses yet !!")
+            else:
+                print(data)
+
 
 # Basic details of our GUI window. ===============================================================#
 
@@ -43,7 +66,9 @@ mono_lable = Label(root, text="Mobile no. - ", font="Helvetica 20 italic")
 # Buttons for GUI ---------------------------------------------------------------------------------#
 
 submit_button = Button(root, text="Submit", font="arial 15 bold", fg="Green", bg="yellow",
-command=submit_details)
+command=lambda: resposes_details("submit"))
+reterive_button = Button(root, text="See all responses", font="arial 10 italic", fg="blue", bg="light yellow",
+command=lambda: resposes_details("get"))
 
 # Setting stringsvariables for input from user from entry widget ----------------------------------#
 
@@ -67,7 +92,8 @@ name_lable.grid(row=5, padx=10, pady=5)
 age_lable.grid(row=6, padx=10, pady=5)
 Gender_lable.grid(row=7, padx=10, pady=5)
 mono_lable.grid(row=8, padx=10, pady=5)
-submit_button.grid(row=9, padx=10, pady=40, columnspan=2)
+submit_button.grid(row=9, padx=10, pady=27, columnspan=2)
+reterive_button.grid(row=12, padx=10, columnspan=2)
 
 # Now packing entry widget -------------------------------------------------------------------------#
 
