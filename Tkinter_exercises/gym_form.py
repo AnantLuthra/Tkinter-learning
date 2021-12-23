@@ -12,15 +12,16 @@ def submit_details():
     This function is to write details in .txt file and also to print details on console.
     """
     
+
     print("Successfully Submitted !!")
     
-
 
 # Basic details of our GUI window. ===============================================================#
 
 root = Tk()
-root.geometry("800x650")
-root.minsize("455", "650")
+root.configure(bg="light yellow")
+root.geometry("570x600")
+root.minsize("455", "65")
 # root.maxsize("442", "650")
 root.title("Dance class registration form")
 
@@ -60,21 +61,19 @@ mono_entry = Entry(root, textvariable=mono)
 
 # Packing elements through .grid() function --------------------------------------------------------#
 
-main_heading.grid(padx=10)
-header_image.grid(row=4, pady=10)
+main_heading.grid(padx=30, columnspan=2)
+header_image.grid(row=4, pady=10, columnspan=2)
 name_lable.grid(row=5, padx=10, pady=5)
 age_lable.grid(row=6, padx=10, pady=5)
 Gender_lable.grid(row=7, padx=10, pady=5)
 mono_lable.grid(row=8, padx=10, pady=5)
-submit_button.grid(row=9, padx=10, pady=40)
+submit_button.grid(row=9, padx=10, pady=40, columnspan=2)
 
 # Now packing entry widget -------------------------------------------------------------------------#
 
-name_entry.grid(row=5, column=1, padx=5, ipadx=25, ipady=18, pady=5)
-age_entry.grid(row=6, column=1,padx=5, ipadx=25, ipady=18, pady=5)
-gender_entry.grid(row=7, column=1,padx=5, ipadx=25, ipady=18, pady=5)
-mono_entry.grid(row=8, column=1,padx=5, ipadx=25, ipady=18, pady=5)
-
-
+name_entry.grid(row=5, column=1, padx=5, ipadx=25, ipady=12, pady=5)
+age_entry.grid(row=6, column=1,padx=5, ipadx=25, ipady=12, pady=5)
+gender_entry.grid(row=7, column=1,padx=5, ipadx=25, ipady=12, pady=5)
+mono_entry.grid(row=8, column=1,padx=5, ipadx=25, ipady=12, pady=5)
 
 root.mainloop()
