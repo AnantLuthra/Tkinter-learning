@@ -6,7 +6,7 @@ Purpose - To learn and practice entery widget and grid layout in tkiter.
 
 from tkinter import *
 root = Tk()
-root.geometry("500x300")
+root.geometry("470x300")
 root.title("Tell your name")
 def submit_kr():
     print(f"Your name is {main_name_entery.get()}")
@@ -15,7 +15,7 @@ def submit_kr():
 
 
 name = Label(root, text="Enter your name and sir name\nin the following boxes",
- font="arial 20 italic",
+ font=("bell MT", 20),
 fg="Green", bg="cyan", padx=80)
 
 # lable_name.grid(row=1, column=2) -> Another way to showing a lable or etc on our GUI window
