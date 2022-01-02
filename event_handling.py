@@ -35,5 +35,4 @@ button1.bind('<Button-2>', lambda event: print("Middle click"))
 button1.bind('<Button-4>', lambda event: print("Middle click"))
 
 
-
 root.mainloop()
