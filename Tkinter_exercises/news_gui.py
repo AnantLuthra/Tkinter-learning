@@ -4,6 +4,7 @@ Date - 1/1/22
 Purpose - To make a newspaper GUI
 """
 
+
 from tkinter import *
 from PIL import Image, ImageTk
 
@@ -22,3 +23,4 @@ Label(frame1, text="This is noticed in ajjubhai's vidoes that he loves sooneta")
 
 frame1.pack()
 root.mainloop()
+

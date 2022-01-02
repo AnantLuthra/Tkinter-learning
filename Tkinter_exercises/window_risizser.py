@@ -13,7 +13,6 @@ def resize_the_window():
         print(e)
 
 
-
 from tkinter import *
 
 root = Tk()
@@ -30,7 +29,12 @@ Label(text="Width :-", font=("calisto mt", 20, "italic")).grid(row=1, column=0)
 Label(text="Height :-", font=("calisto mt", 20, "italic")).grid(row=2, column=0)
 
 # Making button
-Button(text="Submit", font="arial 15", command=resize_the_window).grid(columnspan=2, row=3, pady=25)
+Button(text="Submit", font="arial 15", command=resize_the_window, activebackground="light green",
+ activeforeground="Red",
+ highlightbackground="light blue",
+ highlightcolor="blue").grid(
+    columnspan=2, row=3, pady=25)
+    
 # assigning string variables()
 
 width = StringVar()
