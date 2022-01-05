@@ -3,6 +3,7 @@ Author - Anant Luthra
 Date - 21/12/21
 Purpose - Exploring buttons in Tkinter, and making a GUI to tell 
 """
+
 from tkinter import *
 import wikipedia
 
@@ -53,7 +54,6 @@ b2 = Button(frame1, text="Print \"Hello world\"", fg="brown",
  font="Arial 10 italic", command=print_command)
 close_button = Button(frame1, text="Close", bg="Pink", fg="Black", font="comicsans 15 bold",
  command=exit, pady=-20, padx=35)
-
 frame1.pack(side=TOP, fill=X)
 frame2.pack(side=TOP, fill=X, pady=20)
 close_button.pack(anchor="ne", padx=10)
