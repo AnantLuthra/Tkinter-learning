@@ -18,15 +18,12 @@ def simplified_text(text):
 
 def search_wiki():
     global conclusion 
-    conclusion.configure(text="")
-    root.update()
     command = search.get()
     try:
         # print("Searching Wikipedia....")
         command = command.replace("wikepedia", "")
         results = wikipedia.summary(command, sentences=2)
-        conclusion = Label(text=simplified_text(results),font=("mongolian baiti", 10),
-         bg="light yellow", fg="Black").grid(columnspan=2)
+        conclusion.configure(text=simplified_text(results))
         # Label(text=simplified_text(results)).grid(columnspan=2)
 
     except wikipedia.exceptions.PageError:
