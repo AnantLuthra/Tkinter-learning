@@ -48,6 +48,6 @@ search_entery.grid(row=1, column=1)
 Button(text="Search", fg="light green", bg="black", font=("bell MT", 20, "bold"),
 command=search_wiki).grid(columnspan=2, row=2, pady=60)
 conclusion = Label(text="",font=("mongolian baiti", 10),
-         bg="light yellow", fg="Black").grid(columnspan=2)
-
+         bg="light yellow", fg="Black")
+conclusion.grid(columnspan=2)
 root.mainloop()
