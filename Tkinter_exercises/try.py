@@ -7,14 +7,6 @@ Purpose - To try something newly learned.
 from tkinter import *
 import wikipedia
 
-def simplified_text(text):
-    simpli_text = ""
-    for index, i in enumerate(text):
-        simpli_text += i
-        if index % 100 == 0:
-            simpli_text += "\n"
-    return simpli_text
-
 
 def search_wiki():
     global conclusion 
@@ -23,7 +15,7 @@ def search_wiki():
         # print("Searching Wikipedia....")
         command = command.replace("wikepedia", "")
         results = wikipedia.summary(command, sentences=2)
-        conclusion.configure(text=simplified_text(results))
+        conclusion.configure(text=results)
         # Label(text=simplified_text(results)).grid(columnspan=2)
 
     except wikipedia.exceptions.PageError:
@@ -45,6 +37,6 @@ search_entery.grid(row=1, column=1)
 Button(text="Search", fg="light green", bg="black", font=("bell MT", 20, "bold"),
 command=search_wiki).grid(columnspan=2, row=2, pady=60)
 conclusion = Label(text="",font=("mongolian baiti", 10),
-         bg="light yellow", fg="Black")
+         bg="light yellow", fg="Black", wraplength=550)
 conclusion.grid(columnspan=2)
 root.mainloop()
