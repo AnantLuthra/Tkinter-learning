@@ -12,31 +12,49 @@ def search_wiki():
     global conclusion 
     command = search.get()
     try:
-        # print("Searching Wikipedia....")
         command = command.replace("wikepedia", "")
-        results = wikipedia.summary(command, sentences=2)
+        results = wikipedia.summary(command, sentences=3)
+        root.geometry("600x700")
         conclusion.configure(text=results)
-        # Label(text=simplified_text(results)).grid(columnspan=2)
 
     except wikipedia.exceptions.PageError:
         print("Could not find about the given data..")
     root.update()
 
+# Basic details of our GUI =====================================================================================#
+
 root = Tk()
-root.geometry("600x500")
-root.minsize("600", "500")
-# root.maxsize("600", "500")
+root.geometry("600x330")
+root.minsize("600", "330")
+root.maxsize("620", "750")
 root.config(bg="black")
 root.title("Search Wikipedia")
-Label(text="Search Wikipedia", font=("constantia", 30, "bold"),bg="black", fg="light green").grid(
-    columnspan=2, pady=30)
-Label(text="Enter Topic - ", font=("constantia", 30, "bold"), bg="black", fg="light yellow").grid(row=1, padx=10)
+
+# Widgets of GUI ========================================================================================================#
+
+main_heading = Label(text="Search Wikipedia", font=("constantia", 30, "bold"),bg="black", fg="light green")
+topic = Label(text="Enter Topic - ", font=("constantia", 30, "bold"), bg="black", fg="light yellow")
+
+# Made string variabel for taking entery in it for searching wikipedia..
+
 search = StringVar()
 search_entery = Entry(textvariable=search, font=("century", 20))
-search_entery.grid(row=1, column=1)
-Button(text="Search", fg="light green", bg="black", font=("bell MT", 20, "bold"),
-command=search_wiki).grid(columnspan=2, row=2, pady=60)
-conclusion = Label(text="",font=("mongolian baiti", 10),
+
+
+# Button for searching on wikipedia =====================================================================================#
+button1 = Button(text="Search", fg="light green", bg="black", font=("bell MT", 20, "bold"),
+        command=search_wiki)
+conclusion = Label(text="", font=("mongolian baiti", 15),
          bg="light yellow", fg="Black", wraplength=550)
+
+
+# Packing widgets through .grid() funciton =============================================================================#
+
+main_heading.grid(columnspan=2, pady=30, row=1)
+topic.grid(row=2, padx=10)
+search_entery.grid(row=2, column=1)
+button1.grid(columnspan=2, row=3, pady=60)
 conclusion.grid(columnspan=2)
+
+
 root.mainloop()
