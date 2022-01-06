@@ -13,7 +13,7 @@ def search_wiki():
     command = search.get()
     try:
         command = command.replace("wikepedia", "")
-        results = wikipedia.summary(command, sentences=3)
+        results = wikipedia.summary(command, sentences=4)
         root.geometry("600x700")
         conclusion.configure(text=results)
 
