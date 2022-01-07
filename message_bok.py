@@ -7,6 +7,10 @@ Purpose - To Explore message box in tkinter
 from tkinter import *
 import tkinter.messagebox as msg
 
+
+# Here are messages for basically showing info through msg.showinfo() or msg.askyesorno()
+# Or asking msg.yesnocancel() for getting yes and no and cancel as option for popup.. 
+
 root = Tk()
 
 root.geometry("750x550")
