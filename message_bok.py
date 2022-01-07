@@ -120,7 +120,7 @@ main_menu.add_cascade(label="Edit", menu=option2)
 main_menu.add_cascade(label="Format", menu=option3)
 main_menu.add_cascade(label="View", menu=option4)
 main_menu.add_cascade(label="Help", menu=option5)
-main_menu.add_cascade(label="Girldfriend", menu=option6)
+main_menu.add_cascade(label="Girlfriend", menu=option6)
 
 main_content = StringVar()
 main_entery = Entry(textvariable=main_content, font=("arial rounded mt bold", 20))
