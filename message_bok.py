@@ -47,6 +47,16 @@ def girlfriend_checker(name):
     elif name == "Sneha":
         msg.showinfo(":))", "Do you even know about this girl, or you are just sending this request knowing that she is a girl, having a girl in your life is blessing, so bro your thinking is wrong!!")
 
+    else:    
+        # msg.askquestion("Here is a question", "what is the name of your crush")
+        a = msg.askyesnocancel("Serious question", "Are you a virgin")
+        if a:
+            msg.showinfo("Sorry !", "Sorry bro you can go on your work !!")
+        elif a == False:
+            msg.showinfo("Guess", "So I guess you are serious for your future, so I appreciate you good job bro just keep struggling.")
+        else:
+            pass
+
 
 main_menu = Menu(root)
 
@@ -98,7 +108,7 @@ option6 = Menu(main_menu, tearoff=0)
 option6.add_command(label="Vibhuti", command=lambda: girlfriend_checker("Vibhuti"))
 option6.add_command(label="Anamika", command=lambda: girlfriend_checker("Anamika"))
 option6.add_command(label="Sneha", command=lambda: girlfriend_checker("Sneha"))
-
+option6.add_command(label="I don't want", command=lambda : girlfriend_checker("Dont want"))
 
 root.config(menu=main_menu)
 main_menu.add_cascade(label="File", menu=option1)
