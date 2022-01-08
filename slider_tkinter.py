@@ -29,10 +29,11 @@ Label(root, text="How many insta followers do you want?", font=("candara", 30), 
 
 
 # While making Slider we give an argument named as tickinterval for marking values as per the given value by the user.
-second_slider = Scale(root, from_=0, to=10000, orient=HORIZONTAL, tickinterval=50)
+second_slider = Scale(root, from_=0, to=10000, orient=HORIZONTAL)
+second_slider2 = Scale(root, from_=0, to=10000, orient=HORIZONTAL)
 
 # To set default value of our slider we use .set() function.
-
+second_slider2.pack(pady=20)
 second_slider.set(20)
 second_slider.pack(pady=25)
 
