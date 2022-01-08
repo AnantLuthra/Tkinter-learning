@@ -19,25 +19,23 @@ root.config(bg="#232bc2")
 # first_slider = Scale(root, from_=0, to=100, orient=VERTICAL)
 # first_slider.pack()
 
-# Here is a label
+# Here is a label.
 
-def get_girls():
+def get_followers():
     msg.showinfo("Outcome",
-     f"So your order have been sent to the basement. You will receive {second_slider.get()} girls in 1 hour at your door.")
-    msg.showinfo("Oops !!",
-     "This message has also sent to your parents. So be ready for 50 chappal of your mother and 50 slaps of your father.")
+     f"You will get {second_slider.get()} followers in 24 hours.")
 
-Label(root, text="How many girlfriends do you want?", font=("candara", 30), bg="#ebe213").pack(fill=X, pady=15)
+Label(root, text="How many insta followers do you want?", font=("candara", 30), bg="#ebe213").pack(fill=X, pady=15)
 
 
 # While making Slider we give an argument named as tickinterval for marking values as per the given value by the user.
-second_slider = Scale(root, from_=0, to=100, orient=HORIZONTAL, tickinterval=50)
+second_slider = Scale(root, from_=0, to=10000, orient=HORIZONTAL, tickinterval=50)
 
 # To set default value of our slider we use .set() function.
 
 second_slider.set(20)
 second_slider.pack(pady=25)
 
-Button(text="Get", font=("bookman old style", 20), command=get_girls, bg="#e6e4b1").pack(pady=50)
+Button(text="Get", font=("bookman old style", 20), command=get_followers, bg="#e6e4b1").pack(pady=50)
 
 root.mainloop()
