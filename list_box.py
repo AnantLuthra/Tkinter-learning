@@ -22,15 +22,18 @@ def do_element(command):
     """This function adds element in our List box through the value entered by the user in entry widget's variable value"""
 
     if command == "add":
+
         if list_element.get() == "":
             msg.showinfo("Error !!", "Enter item name in box below to insert it in list. Don't let it empty.")
+            return
 
-        else:
-            list1.insert(ACTIVE, f"{list_element.get()}")
+        list1.insert(ACTIVE, f"{list_element.get()}")
+        list_element.set("")
 
     elif command == "delete":
         list1.delete(ACTIVE)
 
+        
 # Main heading Label.
 
 Label(root, text="List of tkinter widgets", font=("constantia", 30), bg="#f6ffcf").pack(fill=X, side=TOP, pady=7)
@@ -47,7 +50,7 @@ list1.insert(1, "Button")
 list1.insert(1, "Radiobutton")
 
 list_element = StringVar()
- 
+
 # Making entery widget for getting value of another elements for adding in Listbox.
 
 Entry(root, textvariable=list_element, font=("book antiqua", 12)).pack(ipady=7, pady=15)
