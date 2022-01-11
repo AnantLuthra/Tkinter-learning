@@ -34,17 +34,30 @@ def do_element(command):
 Label(root, text="To do list, add your\ndaily tasks.", font=("constantia", 30), bg="#f6ffcf").pack(fill=X, side=TOP, pady=7)
 
 
+"""
+For connecting scroll bar to a widget
+1: Widget (yscrollcommand = scrollbar.set)
+2: scrollbar.config(command=widget.yview)
+"""
+
+
+our_scroll_bar = Scrollbar(root)
+our_scroll_bar.pack(fill=Y, side=RIGHT)
+
+
 # list1 = Listbox(root, font=("Verdana", 14, "underline"), bg="grey")
 
-list1 = Listbox(root, background="#cef2ed", font=("georgia", 12, "italic"))
-list1.pack(pady=20)
+list1 = Listbox(root, background="#cef2ed", font=("georgia", 12, "italic"), yscrollcommand=our_scroll_bar.set)
+list1.pack(pady=20, fill="both")
 
+our_scroll_bar.config(command=list1.yview)
 # Setting values of Listbox which will be their as default values.
 
 list1.insert(1, "GUI 1 video")
 list1.insert(1, "Maths exercise 1 of 7th chapter")
-for i in range(201):
-    list1.insert(END, f"This is {i}th element")
+for i in range(1, 201):
+    list1.insert(END, f"This is {i}th task")
+
 
 list_element = StringVar()
 
@@ -55,8 +68,6 @@ Entry(root, textvariable=list_element, font=("book antiqua", 12)).pack(ipady=7, 
 frame1 = Frame(root, borderwidth=5, height=200, bg="#f2e9ce")
 frame1.pack(side=BOTTOM, pady=15)
 
-our_scroll_bar = Scrollbar(root)
-our_scroll_bar.pack()
 
 # Our button which will add element in list box by add_element() function.
 
