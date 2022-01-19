@@ -10,9 +10,9 @@ class Calculator(Tk):
 
     def __init__(self):
         super().__init__()
-        self.geometry("358x447")
-        self.minsize("358", "447")
-        self.maxsize("358", "447")
+        self.geometry("355x447")
+        self.minsize("355", "447")
+        self.maxsize("355", "447")
         self.title("Calculator - By Anant Luthra")
         self.wm_iconbitmap("calculator.ico")
         self.config(bg="#13aaeb")
@@ -42,7 +42,7 @@ class Calculator(Tk):
 
     def all_buttons(self):
         
-        self.frame1 = Frame(self, height=100, width=380, bg="", padx=2)
+        self.frame1 = Frame(self, height=100, width=380, bg="", padx=3)
         
         # sign C
         self.button = Button(self.frame1, text="C", command=lambda: self.give("C"), font=("cambria", 20), bg="#49b7e6",
@@ -61,11 +61,11 @@ class Calculator(Tk):
 
         # sign *                                                                                                    
         self.button = Button(self.frame1, text="*", command=lambda: self.give("*"), font=("cambria", 20), bg="#49b7e6",
-                               pady=10, padx=27, activebackground="#91cce6")
+                               pady=10, padx=26, activebackground="#91cce6")
         self.button.grid(column=1, row=1)
 
         # button 9
-        self.button = Button(self.frame1, text="9", command=lambda: self.give("9"), font=("cambria", 20),
+        self.button = Button(self.frame1, text="7", command=lambda: self.give("7"), font=("cambria", 20),
                              bg="#75c4e6", activebackground="#91cce6", pady=10, padx=25)
         self.button.grid(column=1, row=2)
 
@@ -75,7 +75,7 @@ class Calculator(Tk):
         self.button.grid(column=2, row=2)
 
         # button 7
-        self.button = Button(self.frame1, text="7", command=lambda: self.give("7"), font=("cambria", 20),
+        self.button = Button(self.frame1, text="9", command=lambda: self.give("9"), font=("cambria", 20),
                              bg="#75c4e6", activebackground="#91cce6", pady=10, padx=25)
         self.button.grid(column=3, row=2)
 
@@ -85,7 +85,7 @@ class Calculator(Tk):
         self.button.grid(column=4, row=2)
 
         # button 6
-        self.button = Button(self.frame1, text="6", command=lambda: self.give("6"), font=("cambria", 20),
+        self.button = Button(self.frame1, text="4", command=lambda: self.give("4"), font=("cambria", 20),
                              bg="#75c4e6", activebackground="#91cce6", pady=10, padx=25)
         self.button.grid(column=1, row=3)
 
@@ -95,7 +95,7 @@ class Calculator(Tk):
         self.button.grid(column=2, row=3)
 
         # button 4
-        self.button = Button(self.frame1, text="4", command=lambda: self.give("4"), font=("cambria", 20),
+        self.button = Button(self.frame1, text="6", command=lambda: self.give("6"), font=("cambria", 20),
                              bg="#75c4e6", activebackground="#91cce6", pady=10, padx=25)
         self.button.grid(column=3, row=3)
 
@@ -105,7 +105,7 @@ class Calculator(Tk):
         self.button.grid(column=4, row=3)
 
         # button 3
-        self.button = Button(self.frame1, text="3", command=lambda: self.give("3"), font=("cambria", 20),
+        self.button = Button(self.frame1, text="1", command=lambda: self.give("1"), font=("cambria", 20),
                              bg="#75c4e6", activebackground="#91cce6", pady=10, padx=25)
         self.button.grid(column=1, row=4)
 
@@ -115,7 +115,7 @@ class Calculator(Tk):
         self.button.grid(column=2, row=4)
 
         # button 1
-        self.button = Button(self.frame1, text="1", command=lambda: self.give("1"), font=("cambria", 20),
+        self.button = Button(self.frame1, text="3", command=lambda: self.give("3"), font=("cambria", 20),
                              bg="#75c4e6", activebackground="#91cce6", pady=10, padx=25)
         self.button.grid(column=3, row=4)
 
@@ -131,7 +131,7 @@ class Calculator(Tk):
 
         # sign .
         self.button = Button(self.frame1, text=" . ", command=lambda: self.give("."), font=("cambria", 20), bg="#49b7e6",
-                             pady=10, padx=25, activebackground="#91cce6")
+                             pady=10, padx=23, activebackground="#91cce6")
         self.button.grid(column=3, row=5)
 
         # sign =
