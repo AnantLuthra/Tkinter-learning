@@ -41,80 +41,88 @@ class Calculator(Tk):
         self.entery = Entry(self, font=("Bahnschrift Light ", 25), textvariable=self.value, bg="#b7dbeb")
         self.entery.pack(fill=X, anchor="n", ipady=10, pady=5, padx=4)
 
-    def numeric_buttons(self, number: str, row: int):
+    def all_buttons(self):
         
-        self.frame1 = Frame(self, height=100, width=380)
-        self.button = Button(self.frame1, text=number, command=lambda: self.give(number), font=("cambria", 20),
-                             bg="#75c4e6", activebackground="#91cce6")
-        self.button.pack(padx=2, side=LEFT)
+        self.frame1 = Frame(self, height=100, width=380, bg="")
+        
+        # button 9
+        self.button = Button(self.frame1, text="9", command=lambda: self.give("9"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=1, row=1)
 
-        
+        # button 8
+        self.button = Button(self.frame1, text="8", command=lambda: self.give("8"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6",  pady=13, padx=14)
+        self.button.grid(padx=2, column=2, row=1)
+
+        # button 7
+        self.button = Button(self.frame1, text="7", command=lambda: self.give("7"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=3, row=1)
+
+        # sign %
+        self.button = Button(self.frame1, text="%", command=lambda: self.give("%"), font=("cambria", 25), bg="#49b7e6", pady=20, padx=12)
+        self.button.grid(padx=2, column=4, row=1)
+
+        # button 6
+        self.button = Button(self.frame1, text="6", command=lambda: self.give("6"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=1, row=2)
+
+        # button 5
+        self.button = Button(self.frame1, text="5", command=lambda: self.give("5"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=2, row=2)
+
+        # button 4
+        self.button = Button(self.frame1, text="4", command=lambda: self.give("4"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=3, row=2)
+
+        # sign -
+        self.button = Button(self.frame1, text="-", command=lambda: self.give("-"), font=("cambria", 25), bg="#49b7e6", pady=20, padx=24)
+        self.button.grid(padx=1, column=4, row=2)
+
+        # button 3
+        self.button = Button(self.frame1, text="3", command=lambda: self.give("3"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=1, row=3)
+
+        # button 2
+        self.button = Button(self.frame1, text="2", command=lambda: self.give("2"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=2, row=3)
+
+        # button 1
+        self.button = Button(self.frame1, text="1", command=lambda: self.give("1"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=3, row=3)
+
+        # sign +
+        self.button = Button(self.frame1, text="+", command=lambda: self.give("+"), font=("cambria", 25), bg="#49b7e6", pady=13, padx=14)
+        self.button.grid(padx=2, column=4, row=3)
+
+        # button 0
+        self.button = Button(self.frame1, text="0", command=lambda: self.give("0"), font=("cambria", 25),
+                             bg="#75c4e6", activebackground="#91cce6", pady=13, padx=14)
+        self.button.grid(padx=2, column=2, row=4)
+
+
         self.frame1.pack(fill=X, side=TOP)
-
-        # if row == 1:
-        #     self.frame1 = Frame(self, height=100, width=380)
-        #     self.button = Button(self.frame1, text=number, command=lambda: self.give(number), font=("cambria", 20),
-        #                             bg="#75c4e6", activebackground="#91cce6")
-        #     self.button.pack(padx=2, side=LEFT)
-        #     self.frame1.pack(fill=X, side=TOP)
-
-        # elif row == 2:
-        #     self.frame2 = Frame(self, height=100, width=380)
-        #     self.button = Button(self.frame2, text=number, command=lambda: self.give(number), font=("cambria", 20),
-        #                             bg="#75c4e6", activebackground="#91cce6")
-        #     self.button.pack(padx=2, side=LEFT)
-        #     self.frame2.pack(fill=X, side=TOP)
-
-        # elif row == 3:
-        #     self.frame3 = Frame(self, height=100, width=380)
-        #     self.button = Button(self.frame3, text=number, command=lambda: self.give(number), font=("cambria", 20),
-        #                             bg="#75c4e6", activebackground="#91cce6")
-        #     self.button.pack(padx=2, side=LEFT)
-        #     self.frame3.pack(fill=X, side=TOP)
-
-        # elif row == 4:
-        #     self.frame4 = Frame(self, height=100, width=380)
-        #     self.button = Button(self.frame4, text=number, command=lambda: self.give(number), font=("cambria", 20),
-        #                             bg="#75c4e6", activebackground="#91cce6")
-        #     self.button.pack(padx=2, side=LEFT)
-        #     self.frame4.pack(fill=X, side=TOP)
-
-        # elif row == 5:
-        #     self.frame5 = Frame(self, height=100, width=380)
-        #     self.button = Button(self.frame5, text=number, command=lambda: self.give(number), font=("cambria", 20),
-        #                             bg="#75c4e6", activebackground="#91cce6")
-        #     self.button.pack(padx=2, side=LEFT)
-        #     self.frame5.pack(fill=X, side=TOP)
-        
-        
-
-    def functions(self, sign):
-        self.button = Button(self, text=sign, command=lambda: self.give(sign), font=("cambria", 20), bg="#49b7e6")
-        self.button.pack(side=LEFT, padx=2)
-
 
 
 if __name__ == "__main__":
     window = Calculator()
 
     window.entry()
-    window.numeric_buttons("9", 1)
-    window.numeric_buttons("8", 1)
-    window.numeric_buttons("7", 1)
-    window.numeric_buttons("6", 2)
-    window.numeric_buttons("5", 2)
-    window.numeric_buttons("4", 2)
-    window.numeric_buttons("3", 3)
-    window.numeric_buttons("2", 3)
-    window.numeric_buttons("1", 3)
-    window.numeric_buttons("0", 4)
+    window.all_buttons()
 
-    window.functions("+")
-    window.functions("-")
-    window.functions("%")
-    window.functions("*")
-    window.functions("**")
-    window.functions("/")
-    window.functions("=")
-    window.functions("C")
+    # window.functions("+")
+    # window.functions("-")
+    # window.functions("%")
+    # window.functions("*")
+    # window.functions("**")
+    # window.functions("/")
+    # window.functions("=")
+    # window.functions("C")
     window.mainloop()
