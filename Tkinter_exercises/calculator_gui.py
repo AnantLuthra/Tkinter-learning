@@ -44,7 +44,7 @@ class Calculator(Tk):
         
         self.frame1 = Frame(self, height=100, width=380, bg="", padx=3)
         
-        # sign C
+        # ====================================== sign C ==============================================================#
         self.button = Button(self.frame1, text="C", command=lambda: self.give("C"), font=("cambria", 20), bg="#49b7e6",
                                pady=10, padx=28, activebackground="#91cce6")
         self.button.grid(column=4, row=1)
@@ -154,3 +154,4 @@ if __name__ == "__main__":
     window.all_buttons()
 
     window.mainloop()
+    
