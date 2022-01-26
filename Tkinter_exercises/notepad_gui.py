@@ -16,21 +16,37 @@ def send_feedback():
 
     def feedback_saver():
         """This function saves the stars given by the user to the notepad."""
+
         stars = percentage.get()
         name = name_variable.get()
+        
+        if name == "Your name":
+            msg.showerror("Error", "Your name is required !")
+            return
+
+
         with open("feedback.txt", "a") as f:
             f.write(f"{name}/{stars}\n")
 
-    feedback_window = Toplevel(root, bg="#79fcd9")
-    # feedback_window.geometry("300x200")
+    # Making a toplevel window to take feedback from the user.
+    feedback_window = Toplevel(root)
+
+    
     feedback_window.title("Feedback")
-    Label(feedback_window, text="Give your rating from 5 star.", font="arial 25", pady=2).pack(side=TOP, pady=10)
+    
+    Label(feedback_window, text="Give your rating from 5 star.", font="arial 15", pady=2).pack(side=TOP, pady=10)
+
     name_variable = StringVar()
     name_variable.set("Your name")
-    Entry(feedback_window, textvariable=name_variable, font=("lucida", 18)).pack(ipady=7 ,pady= 5)
-    percentage = Scale(feedback_window, from_=0, to=5, orient=HORIZONTAL)
+
+    # Entry widget for taking feedback sender's name. #
+    Entry(feedback_window, textvariable=name_variable, font=("lucida", 12)).pack(anchor = "w", ipady=7 ,pady= 5, padx=10)
+
+    # Scale widget for taking rating from the user.
+    percentage = Scale(feedback_window, from_=1, to=5, orient=HORIZONTAL)
     percentage.set(5)
-    percentage.pack(side=TOP)
+    percentage.pack(anchor="w", padx=15)
+    
 
     Button(feedback_window, text="Submit", command = feedback_saver, font="arial 15").pack(pady=10)
 
