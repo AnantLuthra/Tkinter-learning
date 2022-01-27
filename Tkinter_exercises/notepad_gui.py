@@ -6,7 +6,35 @@ Purpose - To make GUI like notepad in tkinter.
 
 from tkinter import *
 import tkinter.messagebox as msg
+
 root = Tk()
+
+def open_file():
+    pass
+
+def save_file():
+    pass
+
+def new_file():
+    pass
+
+def quit_app():
+    pass
+
+def cut():
+    pass
+
+def paste():
+    pass
+
+def copy():
+    pass
+
+def delete():
+    pass
+
+def find():
+    pass
 
 def show_info(title, message):
     msg.showinfo(title, message)
@@ -67,27 +95,27 @@ scrollbar.config(command=first_text.yview)
 main_menu = Menu(root)
 
 option1 = Menu(main_menu, tearoff=0)
-option1.add_command(label="New", command=lambda : print("new command runed sucessfuly"))
+option1.add_command(label="New", command=new_file)
 option1.add_command(label="New window", command=lambda : print("New widow command runed sucessfuly"))
-option1.add_command(label="Open", command=lambda : print("Open command runed sucessfuly"))
-option1.add_command(label="Save", command=lambda : print("Save command runed sucessfuly"))
+option1.add_command(label="Open", command=open_file)
+option1.add_command(label="Save", command=save_file)
 option1.add_command(label="Save As", command=lambda : print("Save as command runed sucessfuly"))
 option1.add_separator()
 option1.add_command(label="Page setup", command=lambda : print("Page setup as command runed sucessfuly"))
 option1.add_command(label="Print", command=lambda : print("Print as command runed sucessfuly"))
 option1.add_separator()
-option1.add_command(label="Exit", command=exit)
+option1.add_command(label="Exit", command=quit_app)
 
 option2 = Menu(main_menu, tearoff=0)
 option2.add_command(label="Undo", command=lambda: print("Command runned successfly"))
 option2.add_separator()
-option2.add_command(label="Cut", command=lambda: print("Command runned successfly"))
-option2.add_command(label="Copy", command=lambda: print("Command runned successfly"))
-option2.add_command(label="Paste", command=lambda: print("Command runned successfly"))
-option2.add_command(label="Delete", command=lambda: print("Command runned successfly"))
+option2.add_command(label="Cut", command=cut)
+option2.add_command(label="Copy", command=copy)
+option2.add_command(label="Paste", command=paste)
+option2.add_command(label="Delete", command=delete)
 option2.add_separator()
 option2.add_command(label="Search with Bing", command=lambda: print("Command runned successfly"))
-option2.add_command(label="Find", command=lambda: print("Command runned successfly"))
+option2.add_command(label="Find", command=find)
 option2.add_command(label="Find next", command=lambda: print("Command runned successfly"))
 option2.add_command(label="Find previous", command=lambda: print("Command runned successfly"))
 option2.add_command(label="Replace", command=lambda: print("Command runned successfly"))
