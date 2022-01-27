@@ -10,8 +10,10 @@ import tkinter.messagebox as msg
 root = Tk()
 
 def open_file():
-    pass
-
+    global file
+    root.title("Untitiled - Anant Luthra")
+    file = None
+    
 def save_file():
     pass
 
@@ -19,25 +21,31 @@ def new_file():
     pass
 
 def quit_app():
-    pass
+    root.destroy()
 
 def cut():
-    pass
+    first_text.event_generate("<<Cut>>")
 
 def paste():
-    pass
+    first_text.event_generate("<<Paste>>")
 
 def copy():
-    pass
+    first_text.event_generate("<<Copy>>")
 
 def delete():
-    pass
+    first_text.event_generate("<<Delete>>")
 
 def find():
     pass
 
 def show_info(title, message):
     msg.showinfo(title, message)
+
+def print_data():
+    data = first_text.get("1.0", END)
+    print(data)
+    first_text.delete("1.0", END)
+    first_text.insert("1.0", "This is inserted through a command which is working properly.")
 
 def send_feedback():
     """This function takes feedback from user of experience after using notepad."""
@@ -84,13 +92,16 @@ root.wm_iconbitmap("notepad_icon.ico")
 
 Label(root, text="Ready", font=("cambria", 11), relief = SUNKEN, padx = 5, anchor = "w").pack(side = BOTTOM, fill = X)
 
-scrollbar = Scrollbar(root)
+scrollbar = Scrollbar(root, orient=VERTICAL)
 scrollbar.pack(fill=Y, side=RIGHT)
 
+
 first_text = Text(root, yscrollcommand= scrollbar.set, font=("book antiqua", 18))
+file = NONE
 first_text.pack(fill=BOTH)
 
 scrollbar.config(command=first_text.yview)
+
 
 main_menu = Menu(root)
 
@@ -102,7 +113,7 @@ option1.add_command(label="Save", command=save_file)
 option1.add_command(label="Save As", command=lambda : print("Save as command runed sucessfuly"))
 option1.add_separator()
 option1.add_command(label="Page setup", command=lambda : print("Page setup as command runed sucessfuly"))
-option1.add_command(label="Print", command=lambda : print("Print as command runed sucessfuly"))
+option1.add_command(label="Print", command=print_data)
 option1.add_separator()
 option1.add_command(label="Exit", command=quit_app)
 
