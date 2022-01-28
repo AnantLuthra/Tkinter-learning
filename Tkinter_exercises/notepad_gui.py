@@ -6,19 +6,62 @@ Purpose - To make GUI like notepad in tkinter.
 
 from tkinter import *
 import tkinter.messagebox as msg
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+import os
 
-root = Tk()
 
 def open_file():
+    """This function opens the file which is to be opened in the """
+    global file
+
+    file = askopenfilename(defaultextension=".txt,",
+                            filetypes=[("text files", "*.txt"),
+                            ("Text files", "*.txt")])
+
+    if file == "":
+        file = None
+
+    else:
+
+        # Clearing the present data and changing the title.
+        root.title(os.path.basename(file) + " - Notepad")
+        first_text.delete(1.0, END)
+
+        # Getting the present text which in the file.
+        with open(file, "r") as f:
+            first_text.insert(1.0, f.read())
+
+
+def save_file():
+    global file
+    if file == None:
+        file = asksaveasfilename(initialfile="Untitled.txt",
+                                    defaultextension=".txt,",
+                            filetypes=[("text files", "*.txt"),
+                            ("Text files", "*.txt")])
+
+        if file == None:
+            file = None
+
+        else:
+            # Saving as a new file.
+            with open(file, "w") as f:
+                f.write(first_text.get(1.0, END))
+
+            root.title(os.path.basename(file) + " - Notepad")
+    
+    else:
+        # Saving old file with new text data
+        with open(file, "w") as f:
+            f.write(first_text.get(1.0, END))
+
+        root.title(os.path.basename(file) + " - Notepad")
+
+
+def new_file():
     global file
     root.title("Untitiled - Anant Luthra")
     file = None
-    
-def save_file():
-    pass
-
-def new_file():
-    pass
 
 def quit_app():
     root.destroy()
@@ -60,7 +103,6 @@ def send_feedback():
             msg.showerror("Error", "Your name is required !")
             return
 
-
         with open("feedback.txt", "a") as f:
             f.write(f"{name}/{stars}\n")
 
@@ -69,7 +111,7 @@ def send_feedback():
 
     
     feedback_window.title("Feedback")
-    
+    feedback_window.maxsize("400", "400")
     Label(feedback_window, text="Give your rating from 5 star.", font="arial 15", pady=2).pack(side=TOP, pady=10)
 
     name_variable = StringVar()
@@ -86,23 +128,29 @@ def send_feedback():
 
     Button(feedback_window, text="Submit", command = feedback_saver, font="arial 15").pack(pady=10)
 
+
+root = Tk()
+# Basic details of GUI's main window.
 root.geometry("500x400")
 root.title("Untitled - Anant Luthra")
 root.wm_iconbitmap("notepad_icon.ico")
 
-Label(root, text="Ready", font=("cambria", 11), relief = SUNKEN, padx = 5, anchor = "w").pack(side = BOTTOM, fill = X)
+# Label for status bar.
+status_bar = Label(root, text="Ready", font=("cambria", 11), relief = SUNKEN, padx = 5, anchor = "w")
+status_bar.pack(side = BOTTOM, fill = X)
 
+# Scrollbar for this GUI.
 scrollbar = Scrollbar(root, orient=VERTICAL)
 scrollbar.pack(fill=Y, side=RIGHT)
 
-
+# Making main text widget in which all data will be shown and edited.
 first_text = Text(root, yscrollcommand= scrollbar.set, font=("book antiqua", 18))
-file = NONE
+file = None
 first_text.pack(fill=BOTH)
 
 scrollbar.config(command=first_text.yview)
 
-
+# Making main menu for all options and drop down list.
 main_menu = Menu(root)
 
 option1 = Menu(main_menu, tearoff=0)
@@ -150,6 +198,8 @@ option5.add_separator()
 option5.add_command(label="About Notepad", command=lambda: show_info("About", "This notepad is developed by Anant luthra."))
 
 root.config(menu=main_menu)
+
+# Adding all menu's to main_menu
 main_menu.add_cascade(label="File", menu=option1)
 main_menu.add_cascade(label="Edit", menu=option2)
 main_menu.add_cascade(label="Format", menu=option3)
