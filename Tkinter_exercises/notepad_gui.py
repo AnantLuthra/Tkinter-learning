@@ -60,8 +60,9 @@ def save_file():
 
 def new_file():
     global file
-    root.title("Untitiled - Anant Luthra")
+    root.title("Untitled - Anant Luthra")
     file = None
+    first_text.delete(1.0, END)
 
 def quit_app():
     root.destroy()
@@ -146,7 +147,7 @@ scrollbar.pack(fill=Y, side=RIGHT)
 # Making main text widget in which all data will be shown and edited.
 first_text = Text(root, yscrollcommand= scrollbar.set, font=("book antiqua", 18))
 file = None
-first_text.pack(fill=BOTH)
+first_text.pack(expand=True, fill=BOTH)
 
 scrollbar.config(command=first_text.yview)
 
