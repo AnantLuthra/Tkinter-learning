@@ -7,7 +7,8 @@ Purpose - To make GUI like notepad in tkinter.
 from tkinter import *
 import tkinter.messagebox as msg
 from tkinter.filedialog import askopenfilename, asksaveasfilename
-import os
+import os, pyautogui
+from datetime import datetime
 
 
 def open_file():
@@ -57,6 +58,27 @@ def save_file():
 
         root.title(os.path.basename(file) + " - Notepad")
 
+def add_date_time():
+    d = datetime.now()
+    only_date = str(d.date())
+    only_time = str(d.time())
+    
+    data = first_text.get(1.0, END)
+    first_text.delete(1.0, END)
+
+    if data == "\n":
+        first_text.insert(1.0, f"{only_time}  {only_date}")
+    else:
+        first_text.insert(1.0, data + f"{only_time}  {only_date}")
+
+
+    # datetime_list = only_date.split("-")
+    # month = datetime_list[1]
+    # date1 = datetime_list[2]
+
+
+def new_window():
+    os.startfile(r"E:\Python\Python projects\Tkinter learning\Tkinter_exercises\notepad_gui.py")
 
 def new_file():
     global file
@@ -156,7 +178,7 @@ main_menu = Menu(root)
 
 option1 = Menu(main_menu, tearoff=0)
 option1.add_command(label="New", command=new_file)
-option1.add_command(label="New window", command=lambda : print("New widow command runed sucessfuly"))
+option1.add_command(label="New window", command=new_window)
 option1.add_command(label="Open", command=open_file)
 option1.add_command(label="Save", command=save_file)
 option1.add_command(label="Save As", command=lambda : print("Save as command runed sucessfuly"))
@@ -167,7 +189,7 @@ option1.add_separator()
 option1.add_command(label="Exit", command=quit_app)
 
 option2 = Menu(main_menu, tearoff=0)
-option2.add_command(label="Undo", command=lambda: print("Command runned successfly"))
+option2.add_command(label="Undo", command=lambda: first_text.event_generate("<<Undo>>"))
 option2.add_separator()
 option2.add_command(label="Cut", command=cut)
 option2.add_command(label="Copy", command=copy)
@@ -181,8 +203,8 @@ option2.add_command(label="Find previous", command=lambda: print("Command runned
 option2.add_command(label="Replace", command=lambda: print("Command runned successfly"))
 option2.add_command(label="Go to", command=lambda: print("Command runned successfly"))
 option2.add_separator()
-option2.add_command(label="Select All", command=lambda: print("Command runned successfly"))
-option2.add_command(label="Time/Date", command=lambda: print("Command runned successfly"))
+option2.add_command(label="Select All", command=lambda: pyautogui.hotkey("Ctrl", "a"))
+option2.add_command(label="Time/Date", command=add_date_time)
 
 option3 = Menu(main_menu, tearoff=0)
 option3.add_command(label="Word Wrap", command=lambda: print("Command runned successfly"))
