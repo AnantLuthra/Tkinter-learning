@@ -8,7 +8,7 @@ from tkinter import *
 import wikipedia
 
 
-def search_wiki():
+def search_wiki(e):
     global conclusion 
     command = search.get()
     try:
@@ -43,11 +43,11 @@ search_entery = Entry(textvariable=search, font=("century", 20))
 
 # Button for searching on wikipedia =====================================================================================#
 button1 = Button(text="Search", fg="light green", bg="black", font=("bell MT", 20, "bold"),
-        command=search_wiki)
+        command=lambda: search_wiki("e"))
 conclusion = Label(text="", font=("mongolian baiti", 15),
          bg="light yellow", fg="Black", wraplength=550)
 
-
+root.bind_all("<Return>", search_wiki)
 # Packing widgets through .grid() funciton =============================================================================#
 
 main_heading.grid(columnspan=2, pady=30, row=1)
